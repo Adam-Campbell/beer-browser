@@ -1,0 +1,68 @@
+<form [formGroup]="filtersForm" (ngSubmit)="onFormSubmit()">
+    <mat-accordion>
+
+        <mat-expansion-panel class="filters-panel" multi="false">
+            <mat-expansion-panel-header>
+                <mat-panel-title>Filter by ABV (Alcohol By Volume)</mat-panel-title>
+            </mat-expansion-panel-header>
+            <!-- <mat-slider
+                (change)="onChange($event)"
+                [value]="sliderVal"
+            ></mat-slider> -->
+            <div class="form-fields-container">
+                <mat-form-field>
+                    <mat-label>ABV greater than</mat-label>
+                    <input matInput type="number" formControlName="abv_gt" />
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>ABV less than</mat-label>
+                    <input matInput type="number" formControlName="abv_lt" />
+                </mat-form-field>
+                <button mat-flat-button type="submit" color="accent" class="submit-button">Update</button>
+            </div>
+        </mat-expansion-panel>
+
+        <mat-expansion-panel class="filters-panel" multi="false">
+            <mat-expansion-panel-header>
+                <mat-panel-title>Filter by IBU (International Bitterness Units)</mat-panel-title>
+            </mat-expansion-panel-header>
+            <div class="form-fields-container">
+                <mat-form-field>
+                    <mat-label>IBU greater than</mat-label>
+                    <input matInput type="number" formControlName="ibu_gt" />
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>IBU less than</mat-label>
+                    <input matInput type="number" formControlName="ibu_lt" />
+                </mat-form-field>
+                <button mat-flat-button type="submit" color="accent" class="submit-button">Update</button>
+            </div>
+        </mat-expansion-panel>
+
+        <mat-expansion-panel class="filters-panel" multi="false">
+            <mat-expansion-panel-header>
+                <mat-panel-title>Filter by Recipe</mat-panel-title>
+            </mat-expansion-panel-header>
+            <div class="form-fields-container">
+                <mat-form-field>
+                    <mat-label>Yeast</mat-label>
+                    <input matInput type="text" formControlName="yeast" />
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Hops</mat-label>
+                    <input matInput type="text" formControlName="hops" />
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Malt</mat-label>
+                    <input matInput type="text" formControlName="malt" />
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Pairs well with</mat-label>
+                    <input matInput type="text" formControlName="food" />
+                </mat-form-field>
+                <button mat-flat-button type="submit" color="accent" class="submit-button">Update</button>
+            </div>
+        </mat-expansion-panel>
+
+    </mat-accordion>
+</form>

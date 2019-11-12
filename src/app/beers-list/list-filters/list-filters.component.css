@@ -1,0 +1,12 @@
+.filters-panel {
+    margin-bottom: 8px;
+}
+
+.submit-button {
+    margin-left: auto;
+}
+
+.form-fields-container {
+    display: flex;
+    align-items: center;
+}

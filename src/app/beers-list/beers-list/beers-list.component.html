@@ -1,0 +1,11 @@
+<app-list-filters></app-list-filters>
+<section>
+    <app-beer-card 
+        *ngFor="let beer of beers"
+        [beerName]="beer.name"
+        [beerId]="beer.id"
+        [beerDescription]="beer.description"
+        [beerImageUrl]="beer.image_url"
+        [beerTagline]="beer.tagline"
+    ></app-beer-card>
+</section>
