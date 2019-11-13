@@ -1,0 +1,45 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 64px;
+}
+
+.image-col {
+    text-align: center;
+}
+
+.text-col {
+    margin-top: 32px;
+}
+
+img {
+    height: 250px;
+    width: auto;
+}
+
+.headline {
+    margin-bottom: 24px;
+}
+
+.tagline {
+    font-style: italic;
+}
+
+@media (min-width: 768px) {
+    .container {
+        flex-direction: row;
+        
+    }
+    .image-col {
+        width: 30%;
+    }
+    .text-col {
+        width: 70%;
+        padding-left: 16px;
+        align-self: center;
+        margin-top: 0;
+    }
+    img {
+        height: 350px;
+    }
+}

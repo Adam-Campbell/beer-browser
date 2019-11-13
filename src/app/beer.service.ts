@@ -107,8 +107,6 @@ export class BeerService implements OnInit {
 		}
 	}
 
-	// Todo: make this method accept various params and pass them 
-	// as query params
   	getBeers(filters = {}): Observable<Beer[]> {
 		let httpParams = new HttpParams().set('per_page', '30');
 		for (let prop in filters) {
@@ -126,15 +124,11 @@ export class BeerService implements OnInit {
 		return this.http.get<Beer[]>(`${this.baseUrl}beers`, options);
   	}
 
-  	getBeer(id: number): Observable<Beer> {
-		return this.http.get<Beer[]>(`${this.baseUrl}beers/${id}`).pipe(
-			map(beers => beers[0])
-		);
+  	getBeer(id: number): Observable<Beer[]> {
+		return this.http.get<Beer[]>(`${this.baseUrl}beers/${id}`);
   	}
 
-  	getRandomBeer(): Observable<Beer> {
-		return this.http.get<Beer[]>(`${this.baseUrl}beers/random`).pipe(
-			map(beers => beers[0])
-		);
+  	getRandomBeer(): Observable<Beer[]> {
+		return this.http.get<Beer[]>(`${this.baseUrl}beers/random`);
   	}
 }

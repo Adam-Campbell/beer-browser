@@ -1,0 +1,32 @@
+<div>
+
+    <app-beer-header
+        [beerName]="beer.name"
+        [tagline]="beer.tagline"
+        [description]="beer.description"
+        [imageUrl]="beer.image_url"
+    ></app-beer-header>
+
+    <app-beer-stats
+        [abv]="beer.abv"
+        [ibu]="beer.ibu"
+        [ebc]="beer.ebc"
+        [srm]="beer.srm"
+        [ph]="beer.ph"
+        [attenuationLevel]="beer.attenuation_level"
+        [volume]="beer.volume"
+        [boilVolume]="beer.boil_volume"
+    ></app-beer-stats>
+
+    <app-beer-ingredients
+        [yeast]="beer.ingredients.yeast"
+        [malts]="beer.ingredients.malt"
+        [hops]="beer.ingredients.hops"
+    ></app-beer-ingredients>
+
+    <app-serving-tips
+        [foodPairings]="beer.food_pairing"
+        [brewersTips]="beer.brewers_tips"
+    ></app-serving-tips>
+    
+</div>

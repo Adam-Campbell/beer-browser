@@ -1,0 +1,21 @@
+.container {
+    margin-bottom: 64px;
+}
+
+.standalone-heading {
+    margin-bottom: 8px;
+}
+
+.standalone-text {
+    margin-top: 8px;
+}
+
+table {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+}
+
+.table-heading {
+    margin-top: 32px;
+}
