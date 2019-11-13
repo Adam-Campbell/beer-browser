@@ -1,0 +1,22 @@
+<div class="container">
+    <h2 class="mat-h2">Stats</h2>
+    <div class="container-inner">
+        <p *ngIf="abv != null" class="mat-body"><span class="mat-body-strong">ABV: </span>{{ abv }}</p>
+        <p *ngIf="ibu != null" class="mat-body"><span class="mat-body-strong">IBU: </span>{{ ibu }}</p>
+        <p *ngIf="ebc != null" class="mat-body"><span class="mat-body-strong">EBC: </span>{{ ebc }}</p>
+        <p *ngIf="srm != null" class="mat-body"><span class="mat-body-strong">SRM: </span>{{ srm }}</p>
+        <p *ngIf="ph != null" class="mat-body"><span class="mat-body-strong">PH: </span>{{ ph }}</p>
+        <p 
+            *ngIf="attenuationLevel != null" 
+            class="mat-body"
+        ><span class="mat-body-strong">Attenutation Level: </span>{{ attenuationLevel }}</p>
+        <p 
+            *ngIf="volume != null && volume.value != null" 
+            class="mat-body"
+        ><span class="mat-body-strong">Volume: </span>{{ volume.value }} litres</p>
+        <p 
+            *ngIf="boilVolume != null && boilVolume.value != null" 
+            class="mat-body"
+        ><span class="mat-body-strong">Boil Volume: </span>{{ boilVolume.value }} litres</p>
+    </div>
+</div>

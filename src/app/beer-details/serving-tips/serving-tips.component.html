@@ -1,0 +1,15 @@
+<div>
+
+    <ng-template [ngIf]="foodPairings.length">
+        <h3 class="mat-h2">Pair with</h3>
+        <mat-chip-list [selectable]="false">
+            <mat-chip *ngFor="let food of foodPairings" [disableRipple]="true">{{ food }}</mat-chip>
+        </mat-chip-list>
+    </ng-template>
+
+    <ng-template [ngIf]="brewersTips">
+        <h3 class="mat-h2 brewers-tips-heading">Brewers tips</h3>
+        <p class="mat-body">{{ brewersTips }}</p>
+    </ng-template>
+    
+</div>

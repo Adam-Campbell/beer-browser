@@ -42,17 +42,17 @@ export interface Beer {
     contributed_by: string
 }
 
-interface Measure {
-    value: number,
+export interface Measure {
+    value: number | null,
     unit: string
 }
 
-interface Malt {
+export interface Malt {
     name: string,
     amount: Measure
 }
 
-interface Hops {
+export interface Hops {
     name: string,
     amount: Measure, 
     add: string,
