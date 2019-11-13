@@ -6,5 +6,9 @@
         <h1 class="mat-display-1 headline">{{ beerName }}</h1>
         <p class="mat-h2 tagline">{{ tagline }}</p>
         <p class="mat-body">{{ description }}</p>
+        <button 
+            mat-flat-button
+            (click)="bookmarkBeer()"
+        >Bookmark</button>
     </div>
 </div>

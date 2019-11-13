@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Beer } from '../../../types';
+import { BeerService } from '../../beer.service';
  
 @Component({
   selector: 'app-beer-details-view',
@@ -8,8 +9,12 @@ import { Beer } from '../../../types';
 })
 export class BeerDetailsViewComponent {
 
-  constructor() { }
+  constructor(private beerService: BeerService) { }
 
   @Input() beer: Beer; 
+
+  bookmarkBeer = () => {
+    this.beerService.saveBeer(this.beer);
+  }
 
 }

@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatTableModule } from '@angular/material/table';
+import { MatButtonModule } from '@angular/material/button';
 import { BeerDetailsRoutingModule } from './beer-details-routing.module';
 import { BeerDetailsComponent } from './beer-details/beer-details.component';
 import { RandomBeerDetailsComponent } from './random-beer-details/random-beer-details.component';
@@ -26,7 +27,8 @@ import { BeerDetailsViewComponent } from './beer-details-view/beer-details-view.
     CommonModule,
     BeerDetailsRoutingModule,
     MatChipsModule,
-    MatTableModule
+    MatTableModule,
+    MatButtonModule
   ]
 })
 export class BeerDetailsModule { }

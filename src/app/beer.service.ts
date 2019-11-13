@@ -1,6 +1,6 @@
-import { Injectable, OnInit } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { Observable, Subject } from 'rxjs';
+import { Observable, Subject, BehaviorSubject } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Beer } from '../types';
 import { LocalStorageMediator } from './localStorageMediator';
@@ -68,22 +68,23 @@ triggered here).
 @Injectable({
   providedIn: 'root'
 })
-export class BeerService implements OnInit {
+export class BeerService {
 
 	private baseUrl = 'https://api.punkapi.com/v2/';
 
 	private persistenceMediator = new LocalStorageMediator();
 
-	private savedBeers: Beer[];
+	private savedBeers: Beer[] = [];
 
 	// Allows external components to subscribe and get the latest saved beers state
-	private savedBeersSource = new Subject<Beer[]>();
+	private savedBeersSource = new BehaviorSubject<Beer[]>([]);
 	savedBeers$ = this.savedBeersSource.asObservable();
 
 	constructor(private http: HttpClient) { }
-	  
-	ngOnInit() {
+
+	hydrateBookmarksData() {
 		const loadedBeers = this.persistenceMediator.load();
+		//console.log('loadedBeers is...', loadedBeers);
 		this.savedBeers = loadedBeers;
 		this.emitBeersState();
 	}

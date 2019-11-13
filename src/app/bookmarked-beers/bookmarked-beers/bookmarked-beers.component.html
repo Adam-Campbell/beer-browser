@@ -1,1 +1,11 @@
-<p>bookmarked-beers works!</p>
+<section>
+        <p>Bookmarked beers will go below here</p>
+        <app-beer-card 
+            *ngFor="let beer of beers"
+            [beerName]="beer.name"
+            [beerId]="beer.id"
+            [beerDescription]="beer.description"
+            [beerImageUrl]="beer.image_url"
+            [beerTagline]="beer.tagline"
+        ></app-beer-card>
+    </section>

@@ -13,6 +13,7 @@ export class BeerHeaderComponent implements OnInit {
   @Input() tagline: string;
   @Input() description: string;
   @Input() imageUrl: string;
+  @Input() bookmarkBeer;
 
   ngOnInit() {
   }
