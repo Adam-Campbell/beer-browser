@@ -5,20 +5,19 @@
             <mat-expansion-panel-header>
                 <mat-panel-title>Filter by ABV (Alcohol By Volume)</mat-panel-title>
             </mat-expansion-panel-header>
-            <!-- <mat-slider
-                (change)="onChange($event)"
-                [value]="sliderVal"
-            ></mat-slider> -->
             <div class="form-fields-container">
                 <mat-form-field>
                     <mat-label>ABV greater than</mat-label>
-                    <input matInput type="number" formControlName="abv_gt" />
+                    <input matInput type="number" formControlName="abv_gt" [errorStateMatcher]="abvErrorMatcher" />
+                    <mat-error>{{ getAbv_gtErrorMessage() }}</mat-error>
                 </mat-form-field>
                 <mat-form-field>
                     <mat-label>ABV less than</mat-label>
-                    <input matInput type="number" formControlName="abv_lt" />
+                    <input matInput type="number" formControlName="abv_lt" [errorStateMatcher]="abvErrorMatcher" />
+                    <mat-error>{{ getAbv_ltErrorMessage() }}</mat-error>
                 </mat-form-field>
-                <button mat-flat-button type="submit" color="accent" class="submit-button">Update</button>
+                <span *ngIf="filtersForm?.errors?.abvRangeError">ABV range error detected</span>
+                <button mat-flat-button type="submit" color="accent" class="submit-button" [disabled]="filtersForm.invalid">Update</button>
             </div>
         </mat-expansion-panel>
 
@@ -29,13 +28,15 @@
             <div class="form-fields-container">
                 <mat-form-field>
                     <mat-label>IBU greater than</mat-label>
-                    <input matInput type="number" formControlName="ibu_gt" />
+                    <input matInput type="number" formControlName="ibu_gt" [errorStateMatcher]="ibuErrorMatcher" />
+                    <mat-error>{{ getIbu_gtErrorMessage() }}</mat-error>
                 </mat-form-field>
                 <mat-form-field>
                     <mat-label>IBU less than</mat-label>
-                    <input matInput type="number" formControlName="ibu_lt" />
+                    <input matInput type="number" formControlName="ibu_lt" [errorStateMatcher]="ibuErrorMatcher" />
+                    <mat-error>{{ getIbu_ltErrorMessage() }}</mat-error>
                 </mat-form-field>
-                <button mat-flat-button type="submit" color="accent" class="submit-button">Update</button>
+                <button mat-flat-button type="submit" color="accent" class="submit-button" [disabled]="filtersForm.invalid">Update</button>
             </div>
         </mat-expansion-panel>
 
@@ -60,7 +61,7 @@
                     <mat-label>Pairs well with</mat-label>
                     <input matInput type="text" formControlName="food" />
                 </mat-form-field>
-                <button mat-flat-button type="submit" color="accent" class="submit-button">Update</button>
+                <button mat-flat-button type="submit" color="accent" class="submit-button" [disabled]="filtersForm.invalid">Update</button>
             </div>
         </mat-expansion-panel>
 
