@@ -1,16 +1,34 @@
 <mat-card class="beer-card">
     <div class="img-col">
-        <img src="{{ beerImageUrl }}" />
+        <img src="{{ beer.image_url }}" />
     </div>
     <div class="text-col">
         
-        <mat-card-title>{{ beerName }}</mat-card-title>
-        <mat-card-subtitle>{{ beerTagline }}</mat-card-subtitle>
-        <mat-card-content class="description">{{ beerDescription | slice:0:200 }}</mat-card-content>
-        <a 
-            mat-flat-button 
-            color="primary"
-            [routerLink]="['/beer', beerId]"
-        >View details</a>
+        <mat-card-title>{{ beer.name }}</mat-card-title>
+        <mat-card-subtitle>{{ beer.tagline }}</mat-card-subtitle>
+        <mat-card-content class="description">{{ beer.description | slice:0:200 }}</mat-card-content>
+        <div class="actions-container">
+            <a 
+                mat-flat-button 
+                color="primary"
+                class="action"
+                [routerLink]="['/beer', beer.id]"
+            >View details</a>
+            <button
+                *ngIf="isBookmarked; else elseBlock"
+                mat-flat-button
+                color="warn"
+                class="action"
+                (click)="handleBookmarkButtonClick()"
+            >Remove Bookmark</button>
+            <ng-template #elseBlock>
+                <button 
+                    mat-flat-button 
+                    color="accent" 
+                    class="action"
+                    (click)="handleBookmarkButtonClick()"
+                >Bookmark</button>
+            </ng-template>
+        </div>
     </div>
 </mat-card>

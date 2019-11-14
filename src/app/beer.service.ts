@@ -108,6 +108,12 @@ export class BeerService {
 		}
 	}
 
+	checkIfBookmarked(id: number): boolean {
+		return Boolean(
+			this.savedBeers.find(beer => beer.id === id)
+		);
+	}
+
   	getBeers(filters = {}): Observable<Beer[]> {
 		let httpParams = new HttpParams().set('per_page', '30');
 		for (let prop in filters) {

@@ -1,4 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { BeerService } from '../beer.service';
+import { Beer } from '../../types';
 
 @Component({
   selector: 'app-beer-card',
@@ -7,15 +9,23 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class BeerCardComponent implements OnInit {
 
-  @Input() beerName: string;
-  @Input() beerId: number;
-  @Input() beerDescription: string;
-  @Input() beerImageUrl: string;
-  @Input() beerTagline: string;
+  @Input() beer: Beer;
+  isBookmarked: boolean;
 
-  constructor() { }
+  constructor(private beerService: BeerService) { }
 
   ngOnInit() {
+    this.isBookmarked = this.beerService.checkIfBookmarked(this.beer.id);
+  }
+
+  handleBookmarkButtonClick() {
+    if (this.isBookmarked) {
+      this.beerService.removeBeer(this.beer.id);
+      this.isBookmarked = false;
+    } else {
+      this.beerService.saveBeer(this.beer);
+      this.isBookmarked = true;
+    }
   }
 
 }

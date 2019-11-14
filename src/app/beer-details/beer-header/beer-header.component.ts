@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-beer-header',
@@ -13,9 +13,14 @@ export class BeerHeaderComponent implements OnInit {
   @Input() tagline: string;
   @Input() description: string;
   @Input() imageUrl: string;
-  @Input() bookmarkBeer;
+  @Input() isBookmarked: boolean;
+  @Output() bookmarkButtonClicked = new EventEmitter();
 
   ngOnInit() {
+  }
+
+  handleButtonClick() {
+    this.bookmarkButtonClicked.emit();
   }
 
 }

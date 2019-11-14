@@ -29,8 +29,16 @@ img {
     object-position: center;
 }
 
-a {
+.actions-container {
     margin-top: auto;
+}
+
+.action {
+    margin-top: 8px;
+}
+
+a {
+    margin-right: 8px;
 }   
 
 :host {

@@ -2,10 +2,6 @@
 <section>
     <app-beer-card 
         *ngFor="let beer of beers"
-        [beerName]="beer.name"
-        [beerId]="beer.id"
-        [beerDescription]="beer.description"
-        [beerImageUrl]="beer.image_url"
-        [beerTagline]="beer.tagline"
+        [beer]="beer"
     ></app-beer-card>
 </section>
