@@ -1,1 +1,7 @@
-<p>bookmarked-beers works!</p>
+<section>
+        <p>Bookmarked beers will go below here</p>
+        <app-beer-card 
+            *ngFor="let beer of beers"
+            [beer]="beer"
+        ></app-beer-card>
+    </section>

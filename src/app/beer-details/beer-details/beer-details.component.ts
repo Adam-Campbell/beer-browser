@@ -25,7 +25,7 @@ export class BeerDetailsComponent implements OnInit {
       map(beers => beers[0]),
       tap(beer => {
         this.beer = beer;
-        console.log(this.beer)
+        console.log(this.beer);
       })
     )
     .subscribe();

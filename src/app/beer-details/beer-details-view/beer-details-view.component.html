@@ -5,6 +5,8 @@
         [tagline]="beer.tagline"
         [description]="beer.description"
         [imageUrl]="beer.image_url"
+        [isBookmarked]="isBookmarked"
+        (bookmarkButtonClicked)="handleBookmarkButtonClick()"
     ></app-beer-header>
 
     <app-beer-stats

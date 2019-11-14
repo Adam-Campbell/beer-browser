@@ -6,5 +6,20 @@
         <h1 class="mat-display-1 headline">{{ beerName }}</h1>
         <p class="mat-h2 tagline">{{ tagline }}</p>
         <p class="mat-body">{{ description }}</p>
+
+        <button 
+            *ngIf="isBookmarked; else elseBlock" 
+            mat-flat-button
+            color="warn"
+            (click)="handleButtonClick()"
+        >Remove Bookmark</button>
+
+        <ng-template #elseBlock>
+            <button 
+                mat-flat-button 
+                color="accent"
+                (click)="handleButtonClick()"
+            >Bookmark</button>
+        </ng-template>
     </div>
 </div>

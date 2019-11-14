@@ -12,6 +12,6 @@ export class AppComponent implements OnInit {
   constructor(private beerService: BeerService) { }
 
   ngOnInit() {
-    //this.beerService.getBeers().subscribe(beerResponse => console.log(beerResponse));
+    this.beerService.hydrateBookmarksData();
   }
 }
