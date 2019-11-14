@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Beer } from '../../../types';
-import { BeerService } from '../../beer.service';
+import { BookmarkService } from '../../bookmark.service';
 
 @Component({
 	selector: 'app-bookmarked-beers',
@@ -9,12 +9,12 @@ import { BeerService } from '../../beer.service';
 })
 export class BookmarkedBeersComponent implements OnInit {
 
-	constructor(private beerService: BeerService) { }
+	constructor(private bookmarkService: BookmarkService) { }
 
 	beers: Beer[];
 
 	ngOnInit() {
-		this.beerService.savedBeers$.subscribe(beers => this.beers = beers);
+		this.bookmarkService.bookmarks$.subscribe(beers => this.beers = beers);
 	}
 
 }

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { BeerService } from './beer.service';
+import { BookmarkService } from './bookmark.service';
 
 @Component({
   selector: 'app-root',
@@ -9,9 +9,9 @@ import { BeerService } from './beer.service';
 export class AppComponent implements OnInit {
   title = 'beer-browser';
 
-  constructor(private beerService: BeerService) { }
+  constructor(private bookmarkService: BookmarkService) { }
 
   ngOnInit() {
-    this.beerService.hydrateBookmarksData();
+    this.bookmarkService.hydrateBookmarksData();
   }
 }
