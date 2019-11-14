@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { BeerService } from '../../beer.service';
+import { DataFetcherService } from '../../data-fetcher.service';
 import { ActivatedRoute } from '@angular/router';
 import { flatMap, map, tap, switchMap } from 'rxjs/operators';
 import { Beer } from '../../../types';
@@ -12,7 +12,7 @@ import { Beer } from '../../../types';
 export class BeerDetailsComponent implements OnInit {
 
   constructor(
-    private beerService: BeerService,
+    private dataFetcherService: DataFetcherService,
     private activatedRoute: ActivatedRoute
   ) { }
 
@@ -21,7 +21,7 @@ export class BeerDetailsComponent implements OnInit {
   ngOnInit() {
     this.activatedRoute.paramMap.pipe(
       map(paramMap => parseInt( paramMap.get('id') )),
-      switchMap(id => this.beerService.getBeer(id)),
+      switchMap(id => this.dataFetcherService.getBeerById(id)),
       map(beers => beers[0]),
       tap(beer => {
         this.beer = beer;

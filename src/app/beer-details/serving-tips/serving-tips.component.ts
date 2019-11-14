@@ -1,18 +1,15 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-serving-tips',
   templateUrl: './serving-tips.component.html',
   styleUrls: ['./serving-tips.component.css']
 })
-export class ServingTipsComponent implements OnInit {
+export class ServingTipsComponent {
 
   constructor() { }
 
   @Input() foodPairings: string[];
   @Input() brewersTips: string;
-
-  ngOnInit() {
-  }
 
 }

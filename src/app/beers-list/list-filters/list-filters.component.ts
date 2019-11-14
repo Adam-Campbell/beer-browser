@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { MatSliderChange } from '@angular/material/slider';
 import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
-import { BeerService } from '../../beer.service';
 
 @Component({
   selector: 'app-list-filters',
@@ -13,7 +12,6 @@ export class ListFiltersComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private beerService: BeerService,
     private router: Router
   ) { }
 

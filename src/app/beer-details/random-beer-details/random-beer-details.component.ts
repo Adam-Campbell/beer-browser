@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router, RouterEvent, NavigationEnd } from '@angular/router';
-import { BeerService } from '../../beer.service';
+import { DataFetcherService } from '../../data-fetcher.service';
 import { Subject } from 'rxjs';
 import { filter, takeUntil } from 'rxjs/operators';
 import { Beer } from '../../../types';
@@ -13,7 +13,7 @@ import { Beer } from '../../../types';
 export class RandomBeerDetailsComponent implements OnInit, OnDestroy {
 
 	constructor(
-		private beerService: BeerService,
+		private dataFetcherService: DataFetcherService,
 		private router: Router
 	) { }
 	  
@@ -21,7 +21,7 @@ export class RandomBeerDetailsComponent implements OnInit, OnDestroy {
 	beer: Beer;
 
 	fetchData(): void {
-		this.beerService.getRandomBeer().subscribe(response => {
+		this.dataFetcherService.getRandomBeer().subscribe(response => {
 			this.beer = response[0];
 		});
 	}

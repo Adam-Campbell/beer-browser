@@ -1,11 +1,11 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-beer-header',
   templateUrl: './beer-header.component.html',
   styleUrls: ['./beer-header.component.css']
 })
-export class BeerHeaderComponent implements OnInit {
+export class BeerHeaderComponent {
 
   constructor() { }
 
@@ -15,9 +15,6 @@ export class BeerHeaderComponent implements OnInit {
   @Input() imageUrl: string;
   @Input() isBookmarked: boolean;
   @Output() bookmarkButtonClicked = new EventEmitter();
-
-  ngOnInit() {
-  }
 
   handleButtonClick() {
     this.bookmarkButtonClicked.emit();

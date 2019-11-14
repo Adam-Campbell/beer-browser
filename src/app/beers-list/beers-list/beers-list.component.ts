@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { BeerService } from '../../beer.service';
+import { DataFetcherService } from '../../data-fetcher.service';
 import { Beer } from '../../../types';
 import { flatMap, map } from 'rxjs/operators';
 
@@ -14,7 +14,7 @@ export class BeersListComponent implements OnInit {
   	beers: Beer[];
 
   	constructor(
-    	private beerService: BeerService,
+    	private dataFetcherService: DataFetcherService,
     	private activatedRoute: ActivatedRoute
   	) { }
 
@@ -27,7 +27,7 @@ export class BeersListComponent implements OnInit {
 					return acc;
 				}, {})
 			}),
-			flatMap(paramsObject => this.beerService.getBeers(paramsObject)),
+			flatMap(paramsObject => this.dataFetcherService.getBeers(paramsObject)),
 			map(response => this.beers = response)
 		)
 		.subscribe();

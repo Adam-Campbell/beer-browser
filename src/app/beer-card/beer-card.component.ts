@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { BeerService } from '../beer.service';
+import { BookmarkService } from '../bookmark.service';
 import { Beer } from '../../types';
 
 @Component({
@@ -12,18 +12,18 @@ export class BeerCardComponent implements OnInit {
   @Input() beer: Beer;
   isBookmarked: boolean;
 
-  constructor(private beerService: BeerService) { }
+  constructor(private bookmarkService: BookmarkService) { }
 
   ngOnInit() {
-    this.isBookmarked = this.beerService.checkIfBookmarked(this.beer.id);
+    this.isBookmarked = this.bookmarkService.checkIfBookmarked(this.beer.id);
   }
 
   handleBookmarkButtonClick() {
     if (this.isBookmarked) {
-      this.beerService.removeBeer(this.beer.id);
+      this.bookmarkService.removeBookmark(this.beer.id);
       this.isBookmarked = false;
     } else {
-      this.beerService.saveBeer(this.beer);
+      this.bookmarkService.addBookmark(this.beer);
       this.isBookmarked = true;
     }
   }

@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Beer } from '../../../types';
-import { BeerService } from '../../beer.service';
+import { BookmarkService } from '../../bookmark.service';
  
 @Component({
   selector: 'app-beer-details-view',
@@ -9,22 +9,22 @@ import { BeerService } from '../../beer.service';
 })
 export class BeerDetailsViewComponent implements OnInit {
 
-  constructor(private beerService: BeerService) { }
+  constructor(private bookmarkService: BookmarkService) { }
 
   @Input() beer: Beer;
   isBookmarked: boolean; 
 
   ngOnInit() {
-    this.beerService.savedBeers$.subscribe(() => {
-      this.isBookmarked = this.beerService.checkIfBookmarked(this.beer.id);
+    this.bookmarkService.bookmarks$.subscribe(() => {
+      this.isBookmarked = this.bookmarkService.checkIfBookmarked(this.beer.id);
     });
   }
 
   handleBookmarkButtonClick() {
     if (this.isBookmarked) {
-      this.beerService.removeBeer(this.beer.id);
+      this.bookmarkService.removeBookmark(this.beer.id);
     } else {
-      this.beerService.saveBeer(this.beer);
+      this.bookmarkService.addBookmark(this.beer);
     }
   }
 

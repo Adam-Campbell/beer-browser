@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Measure } from '../../../types';
 
 @Component({
@@ -6,7 +6,7 @@ import { Measure } from '../../../types';
   templateUrl: './beer-stats.component.html',
   styleUrls: ['./beer-stats.component.css']
 })
-export class BeerStatsComponent implements OnInit {
+export class BeerStatsComponent {
 
   constructor() { }
 
@@ -18,8 +18,5 @@ export class BeerStatsComponent implements OnInit {
   @Input() attenuationLevel: number | null;
   @Input() volume: Measure;
   @Input () boilVolume: Measure;
-
-  ngOnInit() {
-  }
 
 }
