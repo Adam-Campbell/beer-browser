@@ -13,6 +13,10 @@
                         mat-icon-button routerLink="/bookmarked" 
                         aria-label="View bookmarks"
                         matTooltip="View bookmarks"
+                        [matBadge]="bookmarksCount"
+                        matBadgeColor="accent"
+                        matBadgeSize="small"
+                        [matBadgeHidden]="bookmarksCount === '0'"
                     >
                         <mat-icon>bookmarks</mat-icon>
                     </a>

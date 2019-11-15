@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { BookmarkService } from '../bookmark.service';
 
 @Component({
   selector: 'app-toolbar',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ToolbarComponent implements OnInit {
 
-  constructor() { }
+  constructor(private bookmarkService: BookmarkService) { }
+
+  bookmarksCount: string;
 
   ngOnInit() {
+    this.bookmarkService.bookmarks$.subscribe(bookmarks => {
+      console.log(`Number of bookmarks is: ${bookmarks.length}`);
+      const count = bookmarks.length;
+      this.bookmarksCount =  count > 99 ? '99+' : count.toString();
+    })
   }
 
 }
