@@ -10,6 +10,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatBadgeModule } from '@angular/material/badge';
 
 import { BeersListModule } from './beers-list/beers-list.module';
 import { BeerDetailsModule } from './beer-details/beer-details.module';
@@ -31,6 +32,7 @@ import { ToolbarComponent } from './toolbar/toolbar.component';
     MatButtonModule,
     MatIconModule,
     MatTooltipModule,
+    MatBadgeModule,
     BeersListModule,
     BeerDetailsModule,
     BookmarkedBeersModule
