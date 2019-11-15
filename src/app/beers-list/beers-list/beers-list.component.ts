@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { DataFetcherService } from '../../data-fetcher.service';
 import { Beer } from '../../../types';
-import { flatMap, map } from 'rxjs/operators';
+import { flatMap, map, tap } from 'rxjs/operators';
 
 @Component({
   	selector: 'app-beers-list',
@@ -11,7 +11,8 @@ import { flatMap, map } from 'rxjs/operators';
 })
 export class BeersListComponent implements OnInit {
 
-  	beers: Beer[];
+	  beers: Beer[];
+	  isLoading: boolean;
 
   	constructor(
     	private dataFetcherService: DataFetcherService,
@@ -20,6 +21,9 @@ export class BeersListComponent implements OnInit {
 
   	ngOnInit() {
 		this.activatedRoute.queryParamMap.pipe(
+			tap(() => {
+				this.isLoading = true;
+			}),
 			map(queryParamMap => {
 				return queryParamMap.keys.reduce((acc, key) => {
 					const val = queryParamMap.get(key);
@@ -28,9 +32,12 @@ export class BeersListComponent implements OnInit {
 				}, {})
 			}),
 			flatMap(paramsObject => this.dataFetcherService.getBeers(paramsObject)),
-			map(response => this.beers = response)
+			map(response => this.beers = response),
+			tap(() => {
+				this.isLoading = false;
+			})
 		)
 		.subscribe();
-  	}
+	}
 
 }

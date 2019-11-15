@@ -1,4 +1,9 @@
-<div>
+<div class="spinner-container" *ngIf="isLoading; else elseBlock">
+    <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
+</div>
+
+
+<ng-template #elseBlock>
 
     <app-beer-header
         [beerName]="beer.name"
@@ -31,4 +36,4 @@
         [brewersTips]="beer.brewers_tips"
     ></app-serving-tips>
     
-</div>
+</ng-template>

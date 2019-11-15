@@ -28,6 +28,7 @@ ul {
 .logo-link {
     color: #fff;
     text-decoration: none;
+    vertical-align: middle;
 }
 
 .list-item-left {

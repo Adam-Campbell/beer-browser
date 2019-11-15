@@ -3,3 +3,9 @@ section {
     flex-wrap: wrap;
     justify-content: space-between;
 }
+
+.spinner-container {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 64px;
+}
