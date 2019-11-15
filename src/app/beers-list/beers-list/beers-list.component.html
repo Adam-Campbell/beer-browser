@@ -1,7 +1,14 @@
 <app-list-filters></app-list-filters>
 <section>
-    <app-beer-card 
-        *ngFor="let beer of beers"
-        [beer]="beer"
-    ></app-beer-card>
+    <div class="spinner-container" *ngIf="isLoading; else elseBlock">
+        <mat-progress-spinner 
+            mode="indeterminate"
+        ></mat-progress-spinner>
+    </div>
+    <ng-template #elseBlock>
+        <app-beer-card 
+            *ngFor="let beer of beers"
+            [beer]="beer"
+        ></app-beer-card>
+    </ng-template>
 </section>

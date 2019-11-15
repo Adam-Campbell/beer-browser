@@ -17,15 +17,19 @@ export class BeerDetailsComponent implements OnInit {
   ) { }
 
   beer: Beer;
+  isLoading: boolean = false;
 
   ngOnInit() {
     this.activatedRoute.paramMap.pipe(
+      tap(() => {
+          this.isLoading = true;
+      }),
       map(paramMap => parseInt( paramMap.get('id') )),
       switchMap(id => this.dataFetcherService.getBeerById(id)),
       map(beers => beers[0]),
       tap(beer => {
         this.beer = beer;
-        console.log(this.beer);
+        this.isLoading = false;
       })
     )
     .subscribe();

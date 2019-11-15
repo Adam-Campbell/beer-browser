@@ -5,6 +5,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { BeerDetailsRoutingModule } from './beer-details-routing.module';
 import { BeerDetailsComponent } from './beer-details/beer-details.component';
 import { RandomBeerDetailsComponent } from './random-beer-details/random-beer-details.component';
@@ -32,7 +33,8 @@ import { BeerDetailsViewComponent } from './beer-details-view/beer-details-view.
     MatTableModule,
     MatButtonModule,
     MatIconModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatProgressSpinnerModule
   ]
 })
 export class BeerDetailsModule { }

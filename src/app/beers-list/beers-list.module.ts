@@ -2,8 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
 import { MatExpansionModule } from '@angular/material/expansion';
-import { MatSliderModule } from '@angular/material/slider';
 import { MatInputModule } from '@angular/material/input';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { BeersListComponent } from './beers-list/beers-list.component';
@@ -22,8 +22,8 @@ import { BeerCardModule } from '../beer-card/beer-card.module';
     CommonModule,
     MatButtonModule,
     MatExpansionModule,
-    MatSliderModule,
     MatInputModule,
+    MatProgressSpinnerModule,
     ReactiveFormsModule,
     BeerCardModule
   ],

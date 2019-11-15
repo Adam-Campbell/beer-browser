@@ -19,10 +19,13 @@ export class RandomBeerDetailsComponent implements OnInit, OnDestroy {
 	  
 	public destroyed = new Subject<any>();
 	beer: Beer;
+	isLoading: boolean = false;
 
 	fetchData(): void {
+		this.isLoading = true;
 		this.dataFetcherService.getRandomBeer().subscribe(response => {
 			this.beer = response[0];
+			this.isLoading = false;
 		});
 	}
 

@@ -12,6 +12,7 @@ export class BeerDetailsViewComponent implements OnInit {
   constructor(private bookmarkService: BookmarkService) { }
 
   @Input() beer: Beer;
+  @Input() isLoading: boolean;
   isBookmarked: boolean; 
 
   ngOnInit() {
