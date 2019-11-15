@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatTooltipModule } from '@angular/material/tooltip';
 import { BeerCardComponent } from './beer-card.component';
 
 @NgModule({
@@ -13,7 +15,9 @@ import { BeerCardComponent } from './beer-card.component';
         RouterModule,
         CommonModule,
         MatCardModule,
-        MatButtonModule
+        MatButtonModule,
+        MatIconModule,
+        MatTooltipModule
     ],
     exports: [
         BeerCardComponent

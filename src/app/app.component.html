@@ -1,20 +1,4 @@
-<mat-toolbar color="primary" class="header-container">
-    <mat-toolbar-row class="header-inner">
-        <nav>
-            <ul>
-                <li class="list-item-left">
-                    <a class="mat-h1 logo-link" routerLink="/">Beer Browser</a>
-                </li>
-                <li class="list-item-right">
-                    <a mat-button routerLink="/beer/random">Random</a>
-                </li>
-                <li class="list-item-right">
-                    <a mat-button routerLink="/bookmarked">Bookmarked Beers</a>
-                </li>
-            </ul>
-        </nav>
-    </mat-toolbar-row>
-</mat-toolbar>
+<app-toolbar></app-toolbar>
 <div class="content-wrapper">
     <router-outlet></router-outlet>
 </div>

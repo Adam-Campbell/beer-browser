@@ -9,17 +9,25 @@
 
         <button 
             *ngIf="isBookmarked; else elseBlock" 
-            mat-flat-button
+            mat-icon-button
             color="warn"
             (click)="handleButtonClick()"
-        >Remove Bookmark</button>
+            aria-label="Remove from bookmarks"
+            matTooltip="Remove from bookmarks"
+        >
+            <mat-icon color="warn">remove_circle</mat-icon>
+        </button>
 
         <ng-template #elseBlock>
             <button 
-                mat-flat-button 
+                mat-icon-button 
                 color="accent"
                 (click)="handleButtonClick()"
-            >Bookmark</button>
+                aria-label="Add to bookmarks"
+                matTooltip="Add to bookmarks"
+            >
+                <mat-icon color="accent">add_circle</mat-icon>
+            </button>
         </ng-template>
     </div>
 </div>

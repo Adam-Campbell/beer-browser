@@ -1,0 +1,23 @@
+<mat-toolbar color="primary" class="toolbar-container">
+    <mat-toolbar-row class="toolbar-inner">
+        <nav>
+            <ul>
+                <li class="list-item-left">
+                    <a class="mat-h1 logo-link" routerLink="/">Beer Browser</a>
+                </li>
+                <li class="list-item-right">
+                    <a mat-button routerLink="/beer/random">Random</a>
+                </li>
+                <li class="list-item-right">
+                    <a 
+                        mat-icon-button routerLink="/bookmarked" 
+                        aria-label="View bookmarks"
+                        matTooltip="View bookmarks"
+                    >
+                        <mat-icon>bookmarks</mat-icon>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </mat-toolbar-row>
+</mat-toolbar>
