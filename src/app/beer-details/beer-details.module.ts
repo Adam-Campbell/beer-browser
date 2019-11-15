@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatTableModule } from '@angular/material/table';
 import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatTooltipModule } from '@angular/material/tooltip';
 import { BeerDetailsRoutingModule } from './beer-details-routing.module';
 import { BeerDetailsComponent } from './beer-details/beer-details.component';
 import { RandomBeerDetailsComponent } from './random-beer-details/random-beer-details.component';
@@ -28,7 +30,9 @@ import { BeerDetailsViewComponent } from './beer-details-view/beer-details-view.
     BeerDetailsRoutingModule,
     MatChipsModule,
     MatTableModule,
-    MatButtonModule
+    MatButtonModule,
+    MatIconModule,
+    MatTooltipModule
   ]
 })
 export class BeerDetailsModule { }
