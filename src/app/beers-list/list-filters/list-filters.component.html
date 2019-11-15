@@ -5,20 +5,18 @@
             <mat-expansion-panel-header>
                 <mat-panel-title>Filter by ABV (Alcohol By Volume)</mat-panel-title>
             </mat-expansion-panel-header>
-            <!-- <mat-slider
-                (change)="onChange($event)"
-                [value]="sliderVal"
-            ></mat-slider> -->
-            <div class="form-fields-container">
-                <mat-form-field>
+            <div class="form-fields-container-2">
+                <mat-form-field class="field-group-2">
                     <mat-label>ABV greater than</mat-label>
-                    <input matInput type="number" formControlName="abv_gt" />
+                    <input matInput type="number" formControlName="abv_gt" [errorStateMatcher]="abvErrorMatcher" />
+                    <mat-error>{{ getAbv_gtErrorMessage() }}</mat-error>
                 </mat-form-field>
-                <mat-form-field>
+                <mat-form-field class="field-group-2">
                     <mat-label>ABV less than</mat-label>
-                    <input matInput type="number" formControlName="abv_lt" />
+                    <input matInput type="number" formControlName="abv_lt" [errorStateMatcher]="abvErrorMatcher" />
+                    <mat-error>{{ getAbv_ltErrorMessage() }}</mat-error>
                 </mat-form-field>
-                <button mat-flat-button type="submit" color="accent" class="submit-button">Update</button>
+                <button mat-flat-button type="submit" color="accent" class="submit-button" [disabled]="filtersForm.invalid">Update</button>
             </div>
         </mat-expansion-panel>
 
@@ -26,16 +24,18 @@
             <mat-expansion-panel-header>
                 <mat-panel-title>Filter by IBU (International Bitterness Units)</mat-panel-title>
             </mat-expansion-panel-header>
-            <div class="form-fields-container">
-                <mat-form-field>
+            <div class="form-fields-container-2">
+                <mat-form-field class="field-group-2">
                     <mat-label>IBU greater than</mat-label>
-                    <input matInput type="number" formControlName="ibu_gt" />
+                    <input matInput type="number" formControlName="ibu_gt" [errorStateMatcher]="ibuErrorMatcher" />
+                    <mat-error>{{ getIbu_gtErrorMessage() }}</mat-error>
                 </mat-form-field>
-                <mat-form-field>
+                <mat-form-field class="field-group-2">
                     <mat-label>IBU less than</mat-label>
-                    <input matInput type="number" formControlName="ibu_lt" />
+                    <input matInput type="number" formControlName="ibu_lt" [errorStateMatcher]="ibuErrorMatcher" />
+                    <mat-error>{{ getIbu_ltErrorMessage() }}</mat-error>
                 </mat-form-field>
-                <button mat-flat-button type="submit" color="accent" class="submit-button">Update</button>
+                <button mat-flat-button type="submit" color="accent" class="submit-button" [disabled]="filtersForm.invalid">Update</button>
             </div>
         </mat-expansion-panel>
 
@@ -43,24 +43,24 @@
             <mat-expansion-panel-header>
                 <mat-panel-title>Filter by Recipe</mat-panel-title>
             </mat-expansion-panel-header>
-            <div class="form-fields-container">
-                <mat-form-field>
+            <div class="form-fields-container-4">
+                <mat-form-field class="field-group-4">
                     <mat-label>Yeast</mat-label>
                     <input matInput type="text" formControlName="yeast" />
                 </mat-form-field>
-                <mat-form-field>
+                <mat-form-field class="field-group-4">
                     <mat-label>Hops</mat-label>
                     <input matInput type="text" formControlName="hops" />
                 </mat-form-field>
-                <mat-form-field>
+                <mat-form-field class="field-group-4">
                     <mat-label>Malt</mat-label>
                     <input matInput type="text" formControlName="malt" />
                 </mat-form-field>
-                <mat-form-field>
+                <mat-form-field class="field-group-4">
                     <mat-label>Pairs well with</mat-label>
                     <input matInput type="text" formControlName="food" />
                 </mat-form-field>
-                <button mat-flat-button type="submit" color="accent" class="submit-button">Update</button>
+                <button mat-flat-button type="submit" color="accent" class="submit-button" [disabled]="filtersForm.invalid">Update</button>
             </div>
         </mat-expansion-panel>
 
