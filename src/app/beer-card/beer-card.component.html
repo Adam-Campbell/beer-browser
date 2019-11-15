@@ -6,7 +6,7 @@
         
         <mat-card-title>{{ beer.name }}</mat-card-title>
         <mat-card-subtitle>{{ beer.tagline }}</mat-card-subtitle>
-        <mat-card-content class="description">{{ beer.description | slice:0:200 }}</mat-card-content>
+        <mat-card-content class="description">{{ beer.description | truncateWithEllipsis:200 }}</mat-card-content>
         <div class="actions-container">
             <a 
                 mat-stroked-button 

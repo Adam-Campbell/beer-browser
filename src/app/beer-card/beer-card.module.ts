@@ -7,9 +7,12 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { BeerCardComponent } from './beer-card.component';
 
+import { TruncateWithEllipsisPipe } from '../truncate-with-ellipsis.pipe';
+
 @NgModule({
     declarations: [
-        BeerCardComponent
+        BeerCardComponent,
+        TruncateWithEllipsisPipe
     ],
     imports: [
         RouterModule,
