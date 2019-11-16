@@ -21,16 +21,14 @@ export interface Beer {
     volume: Measure,
     boil_volume: Measure,
     method: {
-        mash_temp: [
-            {
-                temp: Measure,
-                duration: number
-            }
-        ],
+        mash_temp: {
+            temp: Measure,
+            duration: number | null
+        }[],
         fermentation: {
             temp: Measure,
         },
-        twist: string
+        twist: string | null
     },
     ingredients: {
         malt: Malt[],
