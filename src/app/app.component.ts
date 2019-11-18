@@ -7,8 +7,7 @@ import { BookmarkService } from './bookmark.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  title = 'beer-browser';
-
+  
   constructor(private bookmarkService: BookmarkService) { }
 
   ngOnInit() {

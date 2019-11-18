@@ -14,10 +14,9 @@ export class ToolbarComponent implements OnInit {
 
   ngOnInit() {
     this.bookmarkService.bookmarks$.subscribe(bookmarks => {
-      console.log(`Number of bookmarks is: ${bookmarks.length}`);
       const count = bookmarks.length;
       this.bookmarksCount =  count > 99 ? '99+' : count.toString();
-    })
+    });
   }
 
 }
