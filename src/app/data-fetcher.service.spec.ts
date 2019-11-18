@@ -9,4 +9,6 @@ xdescribe('DataFetcherService', () => {
     const service: DataFetcherService = TestBed.get(DataFetcherService);
     expect(service).toBeTruthy();
   });
+
+  // test each of the methods, but mock the actual httpClient. 
 });

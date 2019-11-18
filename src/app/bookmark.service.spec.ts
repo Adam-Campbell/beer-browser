@@ -1,31 +1,45 @@
 import { TestBed } from '@angular/core/testing';
 import { BookmarkService } from './bookmark.service';
+import { mockBeer } from './mockData';
 
+describe('BookmarkService', () => {
+  let service: BookmarkService;
 
+  beforeEach(() => {
+    TestBed.configureTestingModule({});
+    service = TestBed.get(BookmarkService);
+    window.localStorage.clear();
+  });
 
-/*
-
-Considerations:
-
-I will need to mock LocalStorageMediator instance that this service uses. Because it is not an
-injected dependency the best way to mock it will be with the spyOn() function provided by Jasmine, 
-to intercept the calls to its load() and save() methods and get them to return whatever I want. 
-
-I will need to work out the best way to test the observable bookmarks$ exposed by this service. I
-will need to test it after each action to ensure that the value it emits is what it should be.
-Do I subscribe to the observable in my test code and just check the value it emits? 
-
-
-
-
-*/
-
-
-xdescribe('BookmarkService', () => {
-  beforeEach(() => TestBed.configureTestingModule({}));
+  afterEach(() => {
+    window.localStorage.clear();
+  });
 
   it('should be created', () => {
-    const service: BookmarkService = TestBed.get(BookmarkService);
     expect(service).toBeTruthy();
   });
+
+  it('hydrates bookmark data from an external data soruce', () => {
+    window.localStorage.setItem('beers', JSON.stringify([mockBeer]));
+    service.hydrateBookmarksData();
+    service.bookmarks$.subscribe(value => expect(value).toEqual([mockBeer]));
+  });
+
+  it('adds a bookmark', () => {
+    service.addBookmark(mockBeer);
+    service.bookmarks$.subscribe(value => expect(value).toEqual([mockBeer]));
+  });
+
+  it('removes a bookmark', () => {
+    service.addBookmark(mockBeer);
+    service.removeBookmark(mockBeer.id);
+    service.bookmarks$.subscribe(value => expect(value).toEqual([]));
+  });
+
+  it('correctly determines if the beer with a particular id is bookmarked', () => {
+    expect(service.checkIfBookmarked(mockBeer.id)).toBe(false);
+    service.addBookmark(mockBeer);
+    expect(service.checkIfBookmarked(mockBeer.id)).toBe(true);
+  });
+  
 });

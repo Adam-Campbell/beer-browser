@@ -20,16 +20,4 @@ xdescribe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'beer-browser'`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('beer-browser');
-  });
-
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('beer-browser app is running!');
-  });
 });

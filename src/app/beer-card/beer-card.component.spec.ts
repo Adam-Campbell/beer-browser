@@ -13,11 +13,8 @@ import { TruncateWithEllipsisPipe } from '../truncate-with-ellipsis.pipe';
 import { mockBeer } from '../mockData';
 import { BookmarkService } from '../bookmark.service';
 
+import { getNativeElFromCSS } from '../testUtils';
 
-const getNativeElFromCSS = <T>(fixture: ComponentFixture<T>) => (cssQuery: string, returnFull: boolean) => {
-  const debug = fixture.debugElement.query( By.css(cssQuery) );
-  return returnFull ? debug : debug.nativeElement;
-}
 
 describe('BeerCardComponent', () => {
   let component: BeerCardComponent;
@@ -46,7 +43,6 @@ describe('BeerCardComponent', () => {
     component = fixture.componentInstance;
     component.beer = mockBeer;
     selectEl = getNativeElFromCSS<BeerCardComponent>(fixture);
-    //fixture.detectChanges();
 
   });
 
@@ -90,7 +86,7 @@ describe('BeerCardComponent', () => {
     component.isBookmarked = false;
     fixture.detectChanges();
 
-    const button = selectEl('button', true);
+    const button = selectEl('button', { returnFull: true });
     const icon = selectEl('mat-icon');
     // The correct icon is displayed before the click
     expect(icon.textContent).toBe('add_circle');
@@ -113,7 +109,7 @@ describe('BeerCardComponent', () => {
     component.isBookmarked = true;
     fixture.detectChanges();
 
-    const button = selectEl('button', true);
+    const button = selectEl('button', { returnFull: true });
     const icon = selectEl('mat-icon');
     // The correct icon is displayed before the click
     expect(icon.textContent).toBe('remove_circle');
