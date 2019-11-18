@@ -11,7 +11,6 @@ import { ParamMap } from '@angular/router';
 export class RangeErrorMatcher implements ErrorStateMatcher {
     constructor(private errorType: string) {}
     isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
-        console.log(control.errors);
         return control.invalid || (form.errors && form.errors[this.errorType])
     }
 }
@@ -27,7 +26,6 @@ export class RangeErrorMatcher implements ErrorStateMatcher {
 export const rangeValidatorFactory = (fieldGroup: string) => (form: FormGroup) => {
     const gtControlValue = form.get(`${fieldGroup}_gt`).value;
     const ltControlValue = form.get(`${fieldGroup}_lt`).value;
-    console.log(gtControlValue, ltControlValue);
     return ltControlValue > gtControlValue ? null : { [`${fieldGroup}RangeError`]: true }
 }
 
