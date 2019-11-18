@@ -16,12 +16,14 @@ import { BeersListModule } from './beers-list/beers-list.module';
 import { BeerDetailsModule } from './beer-details/beer-details.module';
 import { BookmarkedBeersModule } from './bookmarked-beers/bookmarked-beers.module';
 import { ToolbarComponent } from './toolbar/toolbar.component';
+import { FooterComponent } from './footer/footer.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    ToolbarComponent
+    ToolbarComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
