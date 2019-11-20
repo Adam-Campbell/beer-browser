@@ -1,0 +1,15 @@
+<mat-form-field class="search-box">
+    <input 
+        type="text" 
+        [formControl]="searchField" 
+        placeholder="Search by name"
+        aria-label="Search beers by name"
+        matInput 
+        [matAutocomplete]="auto"
+    />
+    <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn" (optionSelected)="handleOptionSelected($event)">
+        <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+            {{ option.name }}
+        </mat-option>
+    </mat-autocomplete>
+</mat-form-field>
